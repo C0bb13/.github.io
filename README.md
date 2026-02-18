@@ -18,9 +18,9 @@ Walmart needs to understand the relationship between discount strategies and cus
 * However, viewing product correlations by category reveals stronger correlations for Beauty (*r* = 0.31) and Food (*r* = 0.16) items.
 * The highest rated brand is *Amay's*.
 * The *home* category of items is significantly better rated than the other categories, especially *clothing* and *beauty*.
-![Project Screenshot](images/WalmartDashboard.png)
-![Project Screenshot](images/WalmartBeauty.png)
-![Project Screenshot](images/WalmartFood.png)
+![Project Screenshot](images/RWalmartDashboard.png)
+![Project Screenshot](images/RWalmartBeauty.png)
+![Project Screenshot](images/RWalmartFood.png)
 ## Technical Challenges & Solutions
 1. Parsing Dictionary Data
    While cleaning data in Python, I realized that the rating_stars column contained string-formatted dictionaries for the 5 star levels for each product. This prevented analysis of the ratings breakdown of each item. To get around this, I wrote a function which first attempted to converted the data into true dictionaries if they weren't already. Then I parsed the dictionary data into 5 numerical columns, 1 for each star level, which allowed for a higher level of granularity in comparing ratings.
