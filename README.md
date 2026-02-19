@@ -20,14 +20,17 @@ Walmart needs to understand the relationship between discount strategies and cus
 * The *home* category of items is significantly better rated than the other categories, especially *clothing* and *beauty*.
 
 ![Project Screenshot](images/RWalmartDashboard.png)
+*Figure 1: Interactive Power BI dashboard showing findings without filtering for a specific product category.*
 ![Project Screenshot](images/RWalmartBeauty.png)
+*Figure 2: Detailed view of the Beauty category, highlighting the stronger correlation between discount and ratings.*
 ![Project Screenshot](images/RWalmartFood.png)
+*Figure 3: Food item analysis showing the correlation between discount percentage and customer satisfaction.*
 
 ## Technical Challenges & Solutions
 1. Parsing Dictionary Data
    While cleaning data in Python, I realized that the rating_stars column contained string-formatted dictionaries for the 5 star levels for each product. This prevented analysis of the ratings breakdown of each item. To get around this, I wrote a function which first attempted to converted the data into true dictionaries if they weren't already. Then I parsed the dictionary data into 5 numerical columns, 1 for each star level, which allowed for a higher level of granularity in comparing ratings.
 2. Ensuring Data Parity
-   During the transition from Jupyter Notebooks to Power BI, a $0.01$ discrepancy in correlation coefficients was identified in the data. Power BI was "row-folding" the data by default, removing data points it registered as identical. To fix this, I added the unique product id to the visual and modified the Python visual code to drop it from the visual, ensuring that no similar values were dropped.
+   During the transition from Jupyter Notebooks to Power BI, a $0.01$ discrepancy in correlation coefficients was identified in the data. Power BI was aggregating duplicate product entries, slightly skewing the correlation. To fix this, I added the unique product id to the visual and modified the Python visual code to drop it from the visual, ensuring that no similar values were dropped. By forcing the visual to use the unique Product ID in the background, I preserved the raw data integrity and matched the Python output. 
 3. Advanced Ranking & Tie-Breaking
    I was trying to add a standard Top-10 filter in Power BI to identify the top 10 best rated brands, struggling with the return of 11 brands instead of 10. I realized that this was likely due to a tie in ratings. My theory was confirmed after I wrote a custom DAX Ranking Measure using an alphabetical tie-breaker and applied it to the visual, ensuring a clean Top 10 ranking for the dashboard.
 
