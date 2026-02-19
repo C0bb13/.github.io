@@ -41,5 +41,7 @@ If I were to present my findings to Walmart, I would suggest that they employ di
 1. Clone the repo:
    ```bash
    git clone [https://github.com/C0bb13/WalmartAnalysis.git](https://github.com/C0bb13/WalmartAnalysis.git)
-2. Install dependencies: `pip install pandas numpy seaborn matplotlib scipy tabulate statsmodels`
-3. Open `WalmartProject.pbix` to view the dashboard or the Jupyter Notebook for the statistical deep-dive.
+2. Install dependencies:
+   ```bash
+   pip install pandas numpy seaborn matplotlib scipy tabulate statsmodels
+4. Open `WalmartProject.pbix` to view the dashboard or the Jupyter Notebook for the statistical deep-dive.
